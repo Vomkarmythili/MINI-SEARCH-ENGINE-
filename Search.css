@@ -1,0 +1,235 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #3eae40;
+  color: #2c3e50;
+}
+
+/* General Container */
+.search-container {
+  margin: 60px auto;
+  padding: 30px;
+  max-width: 960px;
+  max-height: 70vh;        /* Added: limit container height */
+  background-color: #f4f4f4;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  overflow: auto;          /* Changed from visible to auto to enable scrolling */
+  transition: box-shadow 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.results-container {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-top: 20px;
+  padding-right: 6px;
+  overscroll-behavior: contain; /* Optional: improve scroll behavior */
+}
+/* Header Section */
+.search-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.search-header h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* Logout Button */
+.logout-button {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+  position: relative;
+  z-index: 2; /* make sure it’s clickable above everything */
+}
+
+.logout-button:hover {
+  background-color: #c0392b;
+  transform: scale(1.05);
+}
+
+.logout-button:active {
+  transform: scale(0.97);
+}
+
+/* Search Form */
+.search-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 30px 0;
+}
+
+.search-form input {
+  flex: 1 1 300px;
+  padding: 12px 18px;
+  font-size: 16px;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s, background-color 0.3s;
+  outline-offset: 2px;
+  outline-color: transparent;
+}
+
+.search-form input:focus {
+  border-color: #3498db;
+  background-color: #f0faff;
+  outline-color: #3498db;
+  outline-style: solid;
+  outline-width: 2px;
+}
+
+.search-form button {
+  padding: 12px 24px;
+  font-size: 16px;
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 3px 10px rgba(39, 174, 96, 0.3);
+  position: relative;
+  z-index: 2;
+}
+
+.search-form button:hover {
+  background-color: #219150;
+  transform: translateY(-1px);
+}
+
+.search-form button:active {
+  transform: scale(0.96);
+}
+
+.search-form button:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Sections */
+.results-section,
+.history-section {
+  margin-top: 48px;
+}
+
+.results-section h2,
+.history-section h2 {
+  font-size: 22px;
+  margin-bottom: 16px;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+/* Scrollable Container */
+.results-container {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-top: 20px;
+  padding-right: 6px;
+}
+
+/* Lists */
+.results-list,
+.history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.result-item,
+.history-item {
+  padding: 18px 20px;
+  margin-bottom: 14px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: default;
+}
+
+.result-item:hover,
+.history-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.result-item a {
+  text-decoration: none;
+  color: #2c3e50;
+}
+
+.result-item h3 {
+  margin: 0 0 6px 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.result-item p {
+  margin: 0;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Timestamp */
+.timestamp {
+  font-size: 0.85em;
+  color: #c22222;
+  margin-top: 6px;
+  display: block;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .search-container {
+    padding: 24px 16px;
+  }
+
+  .search-form {
+    flex-direction: column;
+  }
+
+  .search-form input,
+  .search-form button {
+    width: 100%;
+  }
+
+  .search-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
